@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (subject) subjects.push(subject);
     });
 
-
     // Clear previous output
     output.innerHTML = "";
 
@@ -103,10 +102,10 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Fill table with data
-    subjects.forEach((subject) =      const dayIndex = dayMap[subject.day!.trim()];
+    subjects.forEach((subject) => {
+      const dayIndex = dayMap[subject.day!.trim()];
 
       if (dayIndex === undefined) return;
-
       const pattern = new RegExp("^(\\d+)-(\\d+)$"); // () is regex syntax to group element
 
       const periodMatch = subject.period!.match(pattern);
