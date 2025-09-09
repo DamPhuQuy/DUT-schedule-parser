@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (subject) subjects.push(subject);
     });
 
+
     // Clear previous output
     output.innerHTML = "";
 
@@ -102,24 +103,52 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Fill table with data
-    subjects.forEach((subject) => {
-      const dayIndex = dayMap[subject.day!.trim()];
+    subjects.forEach((subject) =      const dayIndex = dayMap[subject.day!.trim()];
 
       if (dayIndex === undefined) return;
 
-      const period: string = subject.period!.trim();
-      const start: number = parseInt(period[0]);
-      const end: number = parseInt(period[2]);
+      const pattern = new RegExp("^(\\d+)-(\\d+)$"); // () is regex syntax to group element
+
+      const periodMatch = subject.period!.match(pattern);
+      if (!periodMatch) return;
+
+      let start: number = parseInt(periodMatch[1]);
+      let end: number = parseInt(periodMatch[2]);
 
       for (let i = start; i <= end; i++) {
         if (i < 1 || i > 14) continue;
 
-        const row = rows[i];
+        const row = rows[i - 1];
 
         const cells = row.cells;
         const dayCell = cells[dayIndex + 1];
 
-        dayCell.innerHTML = `${subject.name}<br>${subject.teacher}<br>${subject.room}<br>${subject.week}`;
+        // dayCell.innerHTML = `${subject.name}<br>${subject.teacher}<br>${subject.room}<br>${subject.week}`;
+
+        const container = document.createElement("div");
+
+        const nameElement = document.createElement("div");
+        nameElement.textContent = subject.name || "";
+        nameElement.className = "subject-name";
+
+        const teacherElement = document.createElement("div");
+        teacherElement.textContent = subject.teacher || "";
+        teacherElement.className = "subject-teacher";
+
+        const roomElement = document.createElement("div");
+        roomElement.textContent = subject.room || "";
+        roomElement.className = "subject-room";
+
+        const weekElement = document.createElement("div");
+        weekElement.textContent = subject.week || "";
+        weekElement.className = "subject-week";
+
+        container.appendChild(nameElement);
+        container.appendChild(teacherElement);
+        container.appendChild(roomElement);
+        container.appendChild(weekElement);
+
+        dayCell.appendChild(container);
       }
     });
 
