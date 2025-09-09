@@ -9,6 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   button.addEventListener("click", () => {
     const text = input.value.trim();
+
+    if (!text) {
+      // no input
+      return;
+    }
+
     const lines = text.split("\n");
 
     const subjects: Subject[] = [];
@@ -22,10 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Create table
     const table = document.createElement("table");
-    table.border = "1";
-    table.style.borderCollapse = "collapse";
-    table.style.width = "100%";
-    table.style.textAlign = "center";
+    table.className = "table-custom";
 
     // Table headers
     const headerRow = document.createElement("tr");
@@ -125,21 +128,26 @@ document.addEventListener("DOMContentLoaded", () => {
         // dayCell.innerHTML = `${subject.name}<br>${subject.teacher}<br>${subject.room}<br>${subject.week}`;
 
         const container = document.createElement("div");
+        container.className = "container";
 
         const nameElement = document.createElement("div");
-        nameElement.textContent = subject.name || "";
+        nameElement.textContent =
+          subject.name !== undefined ? subject.name : "";
         nameElement.className = "subject-name";
 
         const teacherElement = document.createElement("div");
-        teacherElement.textContent = subject.teacher || "";
+        teacherElement.textContent =
+          subject.teacher !== undefined ? subject.teacher : "";
         teacherElement.className = "subject-teacher";
 
         const roomElement = document.createElement("div");
-        roomElement.textContent = subject.room || "";
+        roomElement.textContent =
+          subject.room !== undefined ? subject.room : "";
         roomElement.className = "subject-room";
 
         const weekElement = document.createElement("div");
-        weekElement.textContent = subject.week || "";
+        weekElement.textContent =
+          subject.week !== undefined ? subject.week : "";
         weekElement.className = "subject-week";
 
         container.appendChild(nameElement);
