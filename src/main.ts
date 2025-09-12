@@ -1,4 +1,5 @@
 import { Subject, parseSubject } from "./Subject.ts";
+import html2canvas from "html2canvas";
 
 document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("input") as HTMLTextAreaElement | null;
@@ -160,5 +161,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     output.appendChild(table);
+
+    let saveBtn = document.createElement("button"); 
+    saveBtn.className = "saveBtn";
+    saveBtn.textContent = "Save to PNG";
+
+    saveBtn.addEventListener("click", () => {
+      // render table element to canvas
+      html2canvas(table).then((canvas: HTMLCanvasElement) => {
+        const link = document.createElement("a");
+        link.download = "schedule.png";
+        link.href = canvas.toDataURL();
+        link.click();
+      });
+    });
+    output.appendChild(saveBtn);
   });
 });
