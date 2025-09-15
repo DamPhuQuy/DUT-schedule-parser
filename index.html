@@ -3,18 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     <link rel="icon" type="image/icon" href="/schedule32px.ico" />
     <title>DUT schedule parser</title>
   </head>
   <body>
+    <h1 id="heading">
+      SCHEDULE <br />
+      PARSER
+    </h1>
+    <div id="image" style="background-image: url(/image.png)"></div>
     <div class="input-box">
-      <textarea
-        name="input"
-        id="input"
-        placeholder="Copy lịch học và dán vào đây..."
-      ></textarea>
-      <button id="parse">Parse</button>
+      <div class="block">
+        <textarea
+          name="input"
+          id="input"
+          placeholder="Copy lịch học và dán vào đây..."
+        ></textarea>
+        <button id="parse">Parse</button>
+      </div>
     </div>
     <p id="output"></p>
     <script type="module" src="/src/main.ts"></script>

@@ -1,0 +1,163 @@
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings: "liga" 1, "calt" 1; /* fix for Chrome */
+}
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: InterVariable, sans-serif;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.6rem;
+  min-height: 100vh;
+  margin: 0;
+  background-color: rgb(237, 240, 235);
+
+  #heading {
+    position: absolute;
+    font-size: 5rem;
+    top: 12vh;
+    left: 15vw;
+    transition: all 1s ease;
+  }
+
+  #image {
+    background-size: cover;
+    background-position: center;
+    width: 60vw;
+    height: 30vh;
+    transition: all 1s ease;
+  }
+}
+
+.input-box {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+
+  .block {
+    display: flex;
+    flex-direction: row;
+
+    #input {
+      position: relative;
+      height: 8vh;
+      width: 32vw;
+      border: 2px solid #ccc;
+      border-radius: 1rem;
+      overflow-y: auto;
+      resize: vertical;
+      font-size: 2rem;
+      font-family: Inter, sans-serif;
+      transition: all 1s ease;
+    }
+
+    #input:hover {
+      border-color: #62c7db;
+      background-color: #fafafa;
+    }
+
+    #input:focus {
+      outline: none;
+      border-color: #0b68a1;
+      box-shadow: 0 0 6px rgba(79, 70, 229, 0.5);
+      background-color: #fff;
+    }
+
+    #parse {
+      position: relative;
+      color: white;
+      font-family: Inter, sans-serif;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+      border: solid;
+      border-radius: 1rem;
+      background-color: rgb(24, 32, 74);
+      transition: background-color 1s;
+    }
+
+    #parse:hover {
+      background-color: rgb(21, 37, 127);
+      transform: translateY(-3px);
+      cursor: pointer;
+    }
+  }
+}
+
+.table-custom {
+  display: block;
+  border-radius: 8px;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  overflow: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #eeeee4;
+  border-radius: 5%;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+
+  .subject-name {
+    font-weight: bold;
+    color: #2c3e50;
+  }
+
+  .subject-teacher {
+    font-size: 12px;
+    color: #555;
+  }
+
+  .subject-room {
+    font-size: 12px;
+    color: #888;
+  }
+
+  .subject-week {
+    font-size: 12px;
+    color: #999;
+  }
+}
+
+.saveBtn {
+  width: 100%;
+  background-color: rgb(24, 32, 74);
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+.saveBtn:hover {
+  background-color: rgb(21, 37, 127);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
