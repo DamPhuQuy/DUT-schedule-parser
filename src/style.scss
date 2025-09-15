@@ -32,7 +32,14 @@ body {
     font-size: 5rem;
     top: 12vh;
     left: 15vw;
-    transition: all 1s ease;
+    transform: translateY(-100px) translateX(-100px); // modify heading position
+    opacity: 0;
+    transition: all 1s ease, opacity 1s ease;
+  }
+
+  #heading.active {
+    transform: translateY(0); // return the original position
+    opacity: 1;
   }
 
   #image {
@@ -40,7 +47,14 @@ body {
     background-position: center;
     width: 60vw;
     height: 30vh;
+    opacity: 0;
+    transform: translateY(50px);
     transition: all 1s ease;
+  }
+
+  #image.active {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
@@ -66,7 +80,14 @@ body {
       resize: vertical;
       font-size: 2rem;
       font-family: Inter, sans-serif;
+      opacity: 0;
+      transform: translateX(-50px);
       transition: all 1s ease;
+    }
+
+    #input.active {
+      transform: translateX(0);
+      opacity: 1;
     }
 
     #input:hover {
@@ -91,7 +112,14 @@ body {
       border: solid;
       border-radius: 1rem;
       background-color: rgb(24, 32, 74);
-      transition: background-color 1s;
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 1s ease;
+    }
+
+    #parse.active {
+      transform: translateX(0);
+      opacity: 1;
     }
 
     #parse:hover {

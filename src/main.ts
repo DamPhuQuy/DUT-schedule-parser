@@ -7,7 +7,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const button = document.getElementById("parse") as HTMLButtonElement | null;
   const output = document.getElementById("output") as HTMLDivElement | null;
 
+  const heading = document.getElementById("heading");
+  const image = document.getElementById("image");
+
   if (!input || !button || !output) return;
+
+  if (heading && image) {
+    setTimeout(() => {
+      heading.classList.add("active");
+      image.classList.add("active");
+      input.classList.add("active");
+      button.classList.add("active");
+    }, 50);
+  }
 
   button.addEventListener("click", () => {
     const text = input.value.trim();
